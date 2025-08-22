@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Restaurant Menu</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #fafafa;
+      color: #333;
+    }
+
+    header {
+      background: #371f8e;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin: 15px 0;
+    }
+
+    nav button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 20px;
+      background: #371f8e;
+      color: white;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: 0.3s;
+    }
+
+    nav button:hover {
+      background: #371f8e;
+    }
+
+    .menu-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      padding: 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .menu-item {
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.3s;
+    }
+
+    .menu-item:hover {
+      transform: translateY(-5px);
+    }
+
+    .menu-item img {
+      width: 50 px;
+      height: 100px;
+      object-fit: cover;
+    }
+
+    .menu-content {
+      padding: 15px;
+    }
+
+    .menu-content h3 {
+      margin: 0;
+      font-size: 1.3rem;
+      color: #371f8e;
+    }
+
+    .menu-content p {
+      font-size: 0.95rem;
+      margin: 5px 0 10px;
+      color: #555;
+    }
+
+    .price {
+      font-weight: bold;
+      color: #27ae60;
+      font-size: 1.1rem;
+    }
+
+    footer {
+      text-align: center;
+      background: #371f8e;
+      color: white;
+      padding: 15px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🍽 Delicious Restaurant</h1>
+    <p>Fresh • Tasty • Healthy</p>
+  </header>
+
+  <nav>
+    <button onclick="filterMenu('all')">All</button>
+    <button onclick="filterMenu('starters')">Starters</button>
+    <button onclick="filterMenu('main')">Main Course</button>
+    <button onclick="filterMenu('dessert')">Desserts</button>
+    <button onclick="filterMenu('drinks')">Drinks</button>
+  </nav>
+
+  <section class="menu-container">
+    <div class="menu-item starters">
+      <img src="tomato soup.jpeg" alt="Soup">
+      <div class="menu-content">
+        <h3>Tomato Soup</h3>
+        <p>Freshly prepared with herbs and spices.</p>
+        <span class="price">Rs 140</span>
+      </div>
+    </div>
+
+    <div class="menu-item starters">
+      <img src="salad.jpeg" alt="Salad">
+      <div class="menu-content">
+        <h3>Greek Salad</h3>
+        <p>Healthy salad with olives, feta, and veggies.</p>
+        <span class="price">Rs 250</span>
+      </div>
+    </div>
+
+     <div class="menu-item starters">
+      <img src="lentin soup.jpg" alt="Soup">
+      <div class="menu-content">
+        <h3>Lentil soup </h3>
+        <p>Healthy soup with olives, feta, and veggies.</p>
+        <span class="price">Rs 250</span>
+      </div>
+    </div>
+    
+     <div class="menu-item starters">
+      <img src="french onion soup.jpg" alt="Soup">
+      <div class="menu-content">
+        <h3>French Onion Soup</h3>
+        <p>Healthy french style soup.</p>
+        <span class="price">Rs 250</span>
+      </div>
+    </div>
+
+    <div class="menu-item main">
+      <img src="pizza.jpeg" alt="Pizza">
+      <div class="menu-content">
+        <h3>Margherita Pizza</h3>
+        <p>Classic pizza with mozzarella and fresh basil.</p>
+        <span class="price">Rs 600</span>
+      </div>
+    </div>
+
+    <div class="menu-item main">
+      <img src="momo.avif" alt="MoMo">
+      <div class="menu-content">
+        <h3>Steam MoMo</h3>
+        <p>Hot and spicy MoMo.</p>
+        <span class="price">Rs 600</span>
+      </div>
+    </div>
+
+    <div class="menu-item main">
+      <img src="pasta.webp" alt="Pasta">
+      <div class="menu-content">
+        <h3>Spaghetti Carbonara</h3>
+        <p>Creamy pasta with bacon and parmesan.</p>
+        <span class="price">Rs 120</span>
+      </div>
+    </div>
+
+     <div class="menu-item main">
+      <img src="keema.jpeg" alt="Noodles">
+      <div class="menu-content">
+        <h3>Keema Noodles</h3>
+        <p>Classic nooldes with mozzarella and fresh basil.</p>
+        <span class="price">Rs 300</span>
+      </div>
+    </div>
+
+     <div class="menu-item main">
+      <img src="chowmin.jpg" alt="Noodles">
+      <div class="menu-content">
+        <h3>Chowmin</h3>
+        <p>Hot and spicy chowmin noodles.</p>
+        <span class="price">Rs 200</span>
+      </div>
+    </div>
+
+
+
+    <div class="menu-item dessert">
+      <img src="cake.jpeg" alt="Cake">
+      <div class="menu-content">
+        <h3>Chocolate Cake</h3>
+        <p>Rich and moist chocolate layered cake.</p>
+        <span class="price">Rs 400</span>
+      </div>
+    </div>
+
+    <div class="menu-item dessert">
+      <img src="cupcake.jpg" alt="Cake">
+      <div class="menu-content">
+        <h3>vanilla Cake</h3>
+        <p>Rich and moist vanilla cup cake.</p>
+        <span class="price">Rs 80</span>
+      </div>
+    </div>
+
+    <div class="menu-item dessert">
+      <img src="ice cream.jpg" alt="Ice Cream">
+      <div class="menu-content">
+        <h3>Vanilla Ice Cream</h3>
+        <p>Classic scoop with fresh vanilla beans.</p>
+        <span class="price">Rs 80</span>
+      </div>
+    </div>
+
+    <div class="menu-item drinks">
+      <img src="coffee.jpg" alt="Coffee">
+      <div class="menu-content">
+        <h3>Cappuccino</h3>
+        <p>Hot and foamy Italian-style coffee.</p>
+        <span class="price">Rs 299</span>
+      </div>
+    </div>
+
+    <div class="menu-item drinks">
+      <img src="white tea.jpg" alt="tea">
+      <div class="menu-content">
+        <h3>Milk Tea</h3>
+        <p>Hot Ilameli style tea.</p>
+        <span class="price">Rs 299</span>
+      </div>
+    </div>
+
+    <div class="menu-item drinks">
+      <img src="black tea.webp" alt="tea">
+      <div class="menu-content">
+        <h3>Black Tea</h3>
+        <p>Hot and fragnance.</p>
+        <span class="price">Rs 299</span>
+      </div>
+    </div>
+
+    <div class="menu-item drinks">
+      <img src="jui.webp" alt="Juice">
+      <div class="menu-content">
+        <h3>Orange Juice</h3>
+        <p>Freshly squeezed oranges full of vitamins.</p>
+        <span class="price">Rs 90</span>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Delicious Restaurant. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    function filterMenu(category) {
+      let items = document.querySelectorAll('.menu-item');
+      items.forEach(item => {
+        if (category === 'all' || item.classList.contains(category)) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+  </script>
+</body>
+</html>

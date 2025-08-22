@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Styled Simple Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+            background-color: #f0f0f0;
+        }
+
+        .calculator {
+            display: inline-block;
+            border: 1px solid #000;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #fff;
+        }
+
+        input[type="button"] {
+            width: 50px;
+            height: 50px;
+            margin: 5px;
+            font-size: 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        #result {
+            width: 210px;
+            height: 40px;
+            font-size: 20px;
+            text-align: right;
+            margin-bottom: 10px;
+            background-color: #e0e0e0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        /* Numbers */
+        .number {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        /* Operations */
+        .operation {
+            background-color: #FF9800;
+            color: white;
+        }
+
+        /* Clear Button */
+        .clear {
+            background-color: #f44336;
+            color: white;
+        }
+
+        /* Equal Button */
+        .equal {
+            background-color: #2196F3;
+            color: white;
+        }
+
+        /* Hover Effects */
+        input[type="button"]:hover {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <h1 > Calculator</h1>
+
+    <div class="calculator">
+        <input type="text" id="result" disabled>
+        <br>
+        <input type="button" class="number" value="1" onclick="appendToResult('1')">
+        <input type="button" class="number" value="2" onclick="appendToResult('2')">
+        <input type="button" class="number" value="3" onclick="appendToResult('3')">
+        <input type="button" class="operation" value="+" onclick="appendToResult('+')">
+        <br>
+        <input type="button" class="number" value="4" onclick="appendToResult('4')">
+        <input type="button" class="number" value="5" onclick="appendToResult('5')">
+        <input type="button" class="number" value="6" onclick="appendToResult('6')">
+        <input type="button" class="operation" value="-" onclick="appendToResult('-')">
+        <br>
+        <input type="button" class="number" value="7" onclick="appendToResult('7')">
+        <input type="button" class="number" value="8" onclick="appendToResult('8')">
+        <input type="button" class="number" value="9" onclick="appendToResult('9')">
+        <input type="button" class="operation" value="*" onclick="appendToResult('*')">
+        <br>
+        <input type="button" class="number" value="0" onclick="appendToResult('0')">
+        <input type="button" class="clear" value="C" onclick="clearResult()">
+        <input type="button" class="equal" value="=" onclick="calculateResult()">
+        <input type="button" class="operation" value="/" onclick="appendToResult('/')">
+    </div>
+
+    <script>
+        function appendToResult(value) {
+            document.getElementById('result').value += value;
+        }
+
+        function clearResult() {
+            document.getElementById('result').value = '';
+        }
+
+        function calculateResult() {
+            let result = document.getElementById('result').value;
+            try {
+                document.getElementById('result').value = eval(result);
+            } catch (e) {
+                document.getElementById('result').value = 'Error';
+            }
+        }
+    </script>
+
+</body>
+</html>
